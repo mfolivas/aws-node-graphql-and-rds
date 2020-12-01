@@ -1,0 +1,32 @@
+type User {
+	UUID: String
+	Name: String
+	Posts: [Post]
+}
+
+type Post {
+	UUID: String
+	Text: String
+}
+
+input UserInput {
+	Name: String
+	Posts: [PostInput]
+}
+
+input PostInput {
+	Text: String
+}
+
+type Mutation {
+	aurora_createUser(input: UserInput!): User
+}
+
+type Query {
+	aurora_getUser(uuid: String!): User
+}
+
+schema {
+	query: Query
+	mutation: Mutation
+}
