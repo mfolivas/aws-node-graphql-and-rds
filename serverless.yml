@@ -22,9 +22,18 @@ provider:
     AURORA_PORT: ${self:custom.AURORA.PORT}
     
     #common
-    DB_NAME: ${self:custom.DB_NAME}
-    USERNAME: ${self:custom.USERNAME}
+    
+    USERNAME: 
     PASSWORD: ${self:custom.PASSWORD}
+
+
+    DB_DIALECT: mysql
+    DB_NAME: ${self:custom.DB_NAME}
+    DB_USERNAME: ${self:custom.USERNAME}
+    DB_PASSWORD: PASSWORD
+    DB_HOST: 'database_host'
+    DB_PORT: 'database_port'
+
 custom:
   DB_NAME: graphql
   USERNAME: master
@@ -39,6 +48,8 @@ custom:
 
 plugins:
   - serverless-pseudo-parameters
+  - serverless-sequelize-migrations
+
 resources:
   Resources:
     LambdaRole: ${file(./resource/LambdaRole.yml)}
