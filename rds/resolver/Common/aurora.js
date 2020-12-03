@@ -5,7 +5,7 @@ exports.init = async (client) => {
         id MEDIUMINT UNSIGNED not null AUTO_INCREMENT, 
         created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         uuid char(36) not null, 
-        name varchar(100) not null, 
+        name varchar(100) not null,
         PRIMARY KEY (id)
     );  
     `)
