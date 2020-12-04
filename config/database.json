@@ -1,0 +1,10 @@
+{
+    "dev": {
+      "driver": "mysql",
+      "user": "master",
+      "password": "password",
+      "database": "graphql",
+      "multipleStatements": true
+    }
+  }
+  

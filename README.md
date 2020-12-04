@@ -49,3 +49,9 @@ To connect to the RDS locally, you will need to create a bastion host and then e
 ```
 ssh -N -L 3306:database.rds.amazonaws.com:3306 ec2-user@public-ip-bastion-host -i ~/hostkey.pem 
 ```
+
+Once you do a port forwarding, then you can run `db-migrate` to create the database:
+
+```
+node node_modules/db-migrate/bin/db-migrate --config config/database.json up
+```
