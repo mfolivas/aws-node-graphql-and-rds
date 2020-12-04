@@ -9,15 +9,14 @@
         "remove": "serverless remove"
     },
     "dependencies": {
+        "db-migrate": "^0.11.11",
+        "db-migrate-mysql": "^2.1.1",
         "graphql-yoga": "^1.17.4",
-        "mysql2": "^2.2.5",
         "pg": "^7.11.0",
-        "sequelize": "^6.3.5",
         "serverless-mysql": "^1.4.0",
         "uuid": "^3.3.2"
     },
     "devDependencies": {
-        "sequelize-cli": "^6.2.0",
         "serverless-pseudo-parameters": "^2.5.0"
     }
 }

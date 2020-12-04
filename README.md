@@ -43,3 +43,15 @@ Once all pre-requisite items are ready, follow these steps to deploy this exampl
 After you’ve finished working with this example, remove all resources to make sure you’re not getting billed for unused RDS databases.
 
 Run `npm run remove` to remove all resources.
+
+
+To connect to the RDS locally, you will need to create a bastion host and then either connect via ssh or via tunnel:
+```
+ssh -N -L 3306:database.rds.amazonaws.com:3306 ec2-user@public-ip-bastion-host -i ~/hostkey.pem 
+```
+
+Once you do a port forwarding, then you can run `db-migrate` to create the database:
+
+```
+node node_modules/db-migrate/bin/db-migrate --config config/database.json up
+```
