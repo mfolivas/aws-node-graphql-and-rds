@@ -1,0 +1,19 @@
+DependsOn: ServerlessVPC
+Type: AWS::IAM::Role
+Properties:
+  RoleName: 'Serverless-Bastion-Host'
+  AssumeRolePolicyDocument:
+    Version: '2012-10-17'
+    Statement:
+    - Effect: Allow
+      Principal: {Service: [ ec2.amazonaws.com ]}
+      Action: ["sts:AssumeRole"]
+  Path: /
+  Policies:
+  - PolicyName: 'Serverless-Bastion-Host'
+    PolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+      - Effect: Allow
+        Action: ['s3:GetObject','s3:GetObject']
+        Resource: !Sub 'arn:aws:s3:::bastion-host/id_rsa'

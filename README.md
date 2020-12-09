@@ -14,11 +14,7 @@ authorAvatar: ‘https://avatars3.githubusercontent.com/u/40777040?v=4&s=140
 
 This is an example project using the [Serverless framework](https://serverless.com/framework/), Node.js and [Amazon RDS](https://aws.amazon.com/rds/).
 
-This project uses 3 RDS databases to illustrate the differences between using each of them:
-
-* MySQL
-* PostgreSQL
-* MySQL-compatible Amazon Aurora
+This project uses an Aurora encrypted serverless RDS databases and a bastion host.
 
 ## How to Deploy This Project
 
@@ -45,7 +41,8 @@ After you’ve finished working with this example, remove all resources to make 
 Run `npm run remove` to remove all resources.
 
 
-To connect to the RDS locally, you will need to create a bastion host and then either connect via ssh or via tunnel:
+To connect to the RDS locally, you will need to go to the bastion host and then either connect via ssh or via tunnel:
+
 ```
 ssh -N -L 3306:database.rds.amazonaws.com:3306 ec2-user@public-ip-bastion-host -i ~/hostkey.pem 
 ```

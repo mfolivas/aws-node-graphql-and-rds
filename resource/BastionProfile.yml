@@ -1,0 +1,5 @@
+DependsOn: BastionEC2Role
+Type: AWS::IAM::InstanceProfile
+Properties:
+  Path: /
+  Roles: [ !Ref BastionEC2Role ]
