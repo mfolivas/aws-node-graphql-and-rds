@@ -1,0 +1,22 @@
+DependsOn: ServerlessVPC
+Type: AWS::EC2::Instance
+Properties:
+  ImageId: 'ami-04d29b6f966df1537'
+  InstanceType: t2.micro
+  IamInstanceProfile: !Ref BastionProfile
+  KeyName: 'bastion-host'
+  NetworkInterfaces: 
+    - AssociatePublicIpAddress: "true"
+      DeviceIndex: "0"
+      GroupSet: [ !Ref ServerlessSecurityGroup ]
+      SubnetId: !Ref ServerlessSubnetA
+  Tags:
+    - Key: Name
+      Value: 'Serverless-Bastion-Host'
+  UserData:
+    "Fn::Base64":
+      !Sub |
+        #!/bin/bash
+        aws s3 cp s3://bastion-host/id_rsa /home/ec2-user/.ssh/id_rsa --region #{AWS::Region}
+        chmod 0600 /home/ec2-user/.ssh/id_rsa
+        chown ec2-user:ec2-user /home/ec2-user/.ssh/id_rsa

@@ -36,7 +36,7 @@ custom:
     PORT:
       Fn::GetAtt: [AuroraRDSCluster, Endpoint.Port]
     VPC_CIDR: 10
-  
+    
 
 plugins:
   - serverless-pseudo-parameters
@@ -61,6 +61,11 @@ resources:
     AuroraRDSClusterParameter: ${file(./resource/AuroraRDSClusterParameter.yml)}
     AuroraRDSInstanceParameter: ${file(./resource/AuroraRDSInstanceParameter.yml)}
     AuroraRDSCluster: ${file(./resource/AuroraRDSCluster.yml)}
+    
+    
+    BastionEC2Role: ${file(./resource/BastionEC2Role.yml)}
+    BastionProfile: ${file(./resource/BastionProfile.yml)}
+    BastionEC2Instance: ${file(./resource/BastionEC2Instance.yml)}
     
 functions:
   graphql:
