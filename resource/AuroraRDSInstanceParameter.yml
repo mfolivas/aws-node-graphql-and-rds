@@ -1,7 +1,7 @@
 Type: AWS::RDS::DBParameterGroup
 Properties:
   Description: Parameter group for the Serverless Aurora RDS DB.
-  Family: aurora5.6
+  Family: ${self:custom.AURORA_FAMILY}
   Parameters:
     sql_mode: IGNORE_SPACE
     max_connections: 100
