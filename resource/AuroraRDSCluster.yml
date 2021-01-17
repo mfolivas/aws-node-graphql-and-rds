@@ -4,10 +4,10 @@ Properties:
   MasterUserPassword: ${self:custom.PASSWORD}
   DBSubnetGroupName:
     Ref: ServerlessSubnetGroup
-  Engine: aurora
-  EngineMode: serverless
+  Engine: aurora-mysql
+  # EngineMode: provisioned
   EnableHttpEndpoint: true
-  EngineVersion: "5.6"
+  EngineVersion: ${self:custom.MYSQL_VERSION}
   StorageEncrypted: true
   DatabaseName: ${self:custom.DB_NAME}
   BackupRetentionPeriod: 3

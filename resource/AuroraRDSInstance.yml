@@ -1,12 +1,12 @@
 DependsOn: ServerlessVPCGA
 Type: AWS::RDS::DBInstance
 Properties:
-  DBInstanceClass: db.t2.small
+  DBInstanceClass: db.t2.small # db.r5.large should be for prod
   DBSubnetGroupName:
     Ref: ServerlessSubnetGroup
-  Engine: aurora
-  EngineVersion: "5.6"
-  PubliclyAccessible: true
+  Engine: aurora-mysql
+  # EngineVersion: "5.7"
+  PubliclyAccessible: false
   DBParameterGroupName:
     Ref: AuroraRDSInstanceParameter
   DBClusterIdentifier:
